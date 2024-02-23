@@ -32,7 +32,7 @@ const createToken = async () => {
 
 const app = express();
 const port = process.env.PORT || 3000;
-
+app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.set("trust proxy", 1);
@@ -40,7 +40,9 @@ app.use(cookieParser());
 app.use("/static", express.static("public"));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(dirname, "public", "index.html"));
+  res.render(path.join(dirname, "public", "index"), {
+    wsServer: process.env.WS_SERVER,
+  });
 });
 
 app.get("/get-token", async (req, res) => {

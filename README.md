@@ -37,9 +37,10 @@ Follow these steps to configure your environment variables:
   PORT=3000
   LIVEKIT_API_KEY=Your_LiveKit_API_Key_Here
   LIVEKIT_API_SECRET=Your_LiveKit_API_Secret_Here
+  WS_SERVER= Your web socket server from livekit cloud
   ```
 
-Ensure to replace `Your_LiveKit_API_Key_Here` and `Your_LiveKit_API_Secret_Here` with your actual LiveKit API key and secret.
+Ensure to replace `Your_LiveKit_API_Key_Here`, `WS_SERVER` and `Your_LiveKit_API_Secret_Here` with your actual LiveKit API key and secret.
 
 ## Running the Server
 

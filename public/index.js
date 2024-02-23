@@ -1,6 +1,7 @@
 const tokenELM = document.getElementById("tokenTXT");
 const viewStreamBtn = document.getElementById("viewStreamBtn");
 const roomNameELM = document.getElementById("roomName");
+let wsServer;
 
 document.addEventListener("DOMContentLoaded", async () => {
   const { connect, RoomEvent } = LivekitClient;
@@ -20,7 +21,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   async function joinRoom() {
     try {
-      const wsURL = "wss://app1-lzv0cxkb.livekit.cloud";
+      const wsURL = wsServer;
       const token = await fetchToken();
       const room = new LivekitClient.Room();
 
@@ -59,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       // Connect to the room
       await room.connect(wsURL, token);
-      roomNameELM.innerHTML = "Connected to room" + room.name;
+      roomNameELM.innerHTML = "Connected to " + room.name;
       console.log("Connected to room", room.name);
     } catch (error) {
       console.error("Failed to join the room:", error);
