@@ -1,0 +1,90 @@
+/* Styles for the body to add some padding and set a font family */
+body {
+  font-family: "Arial", sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f0f0f0;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center-align the child elements */
+}
+
+/* Styling for the button */
+.stream-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 20px; /* Adds space between the textarea and the button */
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.stream-button:hover {
+  background-color: #0056b3;
+}
+
+/* Styles for the main title */
+h1 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#video-container {
+  margin-top: 20px;
+  background-color: #000;
+  /*width: 60%;  
+  height: 500px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 5px; /* Optional: adds rounded corners */
+}
+/* Responsive styles for video elements within the video container */
+#video-container video {
+  max-width: 100%;
+  height: auto;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Textarea styling */
+textarea#tokenTXT {
+  width: 60%; /* Adjust width to match video container for alignment */
+  height: 20px;
+  margin-top: 20px; /* Adds some space below the header */
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 3px #ddd;
+  resize: vertical; /* Allows vertical resizing */
+}
+/* Styling for the button */
+.stream-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.stream-button:hover {
+  background-color: #0056b3;
+}
