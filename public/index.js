@@ -4,7 +4,14 @@ const roomNameELM = document.getElementById("roomName");
 let wsServer;
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const { connect, RoomEvent } = LivekitClient;
+  const {
+    Participant,
+    RemoteParticipant,
+    RemoteTrack,
+    RemoteTrackPublication,
+    Room,
+    RoomEvent,
+  } = LivekitClient;
 
   // Function to fetch the token from your server
   async function fetchToken() {
@@ -28,6 +35,8 @@ document.addEventListener("DOMContentLoaded", async () => {
       room.on(RoomEvent.TrackSubscribed, (track, publication, participant) => {
         // When a track is subscribed, attach it to the DOM for display
         if (track.kind === "video") {
+          document.getElementById("stream-status-message").style.display =
+            "none";
           const videoElement = track.attach();
           videoElement.controls = true;
           videoElement.autoplay = true;
@@ -42,6 +51,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         RoomEvent.TrackUnsubscribed,
         (track, publication, participant) => {
           if (track.kind === "video") {
+            document.getElementById("stream-status-message").textContent =
+              "looks the broadcaster has stopped or unsubscribed";
             // When a track is unsubscribed, remove the corresponding element from the DOM
             const element = document.getElementById(`track-${track.sid}`);
             track.detach();
@@ -61,13 +72,14 @@ document.addEventListener("DOMContentLoaded", async () => {
       // Connect to the room
       await room.connect(wsURL, token);
       roomNameELM.innerHTML = "Connected to " + room.name;
-      console.log("Connected to room", room.name);
     } catch (error) {
       console.error("Failed to join the room:", error);
     }
   }
 
-  viewStreamBtn.addEventListener("click", () => {
-    joinRoom();
+  viewStreamBtn.addEventListener("click", async () => {
+    document.getElementById("stream-status-message").textContent =
+      "Start the broadcaster to view the stream, no stream arrived yet.";
+    await joinRoom();
   });
 });

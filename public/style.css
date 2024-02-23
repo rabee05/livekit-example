@@ -88,3 +88,16 @@ textarea#tokenTXT {
 .stream-button:hover {
   background-color: #0056b3;
 }
+
+/* New style for the status message */
+#stream-status-message {
+  color: #444; /* Dark grey text for better readability against a light background */
+  background-color: #f8f8f8; /* Light background */
+  text-align: center;
+  padding: 15px;
+  width: 60%;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow for depth */
+  font-size: 16px;
+  font-style: italic;
+}
